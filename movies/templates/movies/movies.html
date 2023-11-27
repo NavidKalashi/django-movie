@@ -1,0 +1,21 @@
+{% extends "main.html" %}
+
+{% block content %}
+<h1>Movies</h1>
+
+<table>
+    <tr>
+        <th>Movie name</th>
+        <th>Director</th>
+    </tr>
+    {% for movie in movies %}
+    <tr>
+        <td>{{movie.name}}</td>
+        <th>{{movie.director}}</th>
+        <th><a href="{% url 'delete-movie' movie.id %}">Delete</a></th>
+        <th><a href="{% url 'edit-movie' movie.id %}">Edit</a></th>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock content %}
